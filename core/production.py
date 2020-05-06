@@ -15,13 +15,13 @@ DEBUG = TEMPLATE_DEBUG = False
 DATABASES['default'] = dj_database_url.config()
 
 # APPLICATION DEFINITION
-INSTALLED_APPS += ['gbekecompany.herokuapp.com']
+INSTALLED_APPS += ['whitenoise.runserver_nostatic']
 
 # 'django.middleware.security.SecurityMiddleware',
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 #  Add configuration for static files storage using whitenoise
 
-ALLOWED_HOSTS = ["apigbekecompany.herokuapp.com"]
+ALLOWED_HOSTS = ["gbekecompany.herokuapp.com"]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 STATICFILES_FINDERS = (
