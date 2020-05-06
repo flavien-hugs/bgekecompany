@@ -15,7 +15,7 @@ DEBUG = TEMPLATE_DEBUG = False
 DATABASES['default'] = dj_database_url.config()
 
 # APPLICATION DEFINITION
-INSTALLED_APPS += ['whitenoise.runserver_nostatic']
+INSTALLED_APPS += ['gbekecompany.herokuapp.com']
 
 # 'django.middleware.security.SecurityMiddleware',
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
