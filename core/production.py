@@ -17,11 +17,15 @@ DATABASES['default'] = dj_database_url.config()
 # APPLICATION DEFINITION
 INSTALLED_APPS += ['whitenoise.runserver_nostatic']
 
+#  Add configuration for static files storage using whitenoise
 # 'django.middleware.security.SecurityMiddleware',
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 ALLOWED_HOSTS = ["gbekecompany.herokuapp.com"]
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+)
