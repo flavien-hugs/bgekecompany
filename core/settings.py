@@ -51,7 +51,6 @@ INSTALLED_APPS = [
 
     'app.apps.AppConfig',
     'rest_framework',
-    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -119,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'fr'
 TIME_ZONE = 'UTC'
 USE_I18N = USE_L10N = USE_TZ = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -128,25 +126,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
-]
-
-# Config Django Compressor
-COMPRESS_ENABLED = True
-COMPRESS_ROOT = STATIC_ROOT
-COMPRESS_OUTPUT_DIR = 'api'
-COMPRESS_REBUILD_TIMEOUT = 1830
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # other finders..
-    'compressor.finders.CompressorFinder',
-)
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.cssmin.CSSMinFilter'
-]
-COMPRESS_JS_FILTERS = [
-    'compressor.filters.jsmin.JSMinFilter'
 ]
 
 REST_FRAMEWORK = {

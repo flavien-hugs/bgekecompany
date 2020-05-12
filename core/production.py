@@ -25,5 +25,3 @@ MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ALLOWED_HOSTS = ["gbekecompany.herokuapp.com"]
-
-
