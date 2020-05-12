@@ -19,13 +19,29 @@ INSTALLED_APPS += ['whitenoise.runserver_nostatic']
 
 # 'django.middleware.security.SecurityMiddleware',
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
-#  Add configuration for static files storage using whitenoise
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ALLOWED_HOSTS = ["gbekecompany.herokuapp.com"]
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # other finders..
-)
+SECURE_HSTS_SECONDS = 15768000  # 6 mois
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_SSL_REDIRECT = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_REFERRER_POLICY = 'origin'
+SESSION_COOKIE_AGE = 15768000
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_SECURE = True
+CACHE_MIDDLEWARE_SECONDS = 5000
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'SameSite'
+CSRF_USE_SESSIONS = True
+SESSION_COOKIE_NAME = 'api'
+
+
