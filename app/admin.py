@@ -7,4 +7,3 @@ from app.models import Entreprise
 
 
 admin.site.register(Entreprise)
-

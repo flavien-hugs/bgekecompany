@@ -6,7 +6,6 @@ __version__ = '0.0.1'
 __copyright__ = '© 2019 unsta'
 
 from rest_framework import viewsets, authentication, permissions
-
 from app.models import Entreprise
 from app.serializers import EntrepriseSerializer
 

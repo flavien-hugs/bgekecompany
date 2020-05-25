@@ -9,8 +9,8 @@ from django.db import models
 
 
 class Entreprise(models.Model):
+    directeur = models.CharField("Directeur Général", max_length=30)
     name = models.CharField("Nom de l'entreprise", max_length=30, unique=True)
-    director = models.CharField("Directeur Général", default='Mr/Mme', max_length=30)
     domaine = models.CharField("Domaine d'activité", max_length=50)
     email = models.EmailField('Adresse email', unique=True, blank=True)
     contact = models.CharField('Contact', default='+225 00 00 00 00', max_length=50)
