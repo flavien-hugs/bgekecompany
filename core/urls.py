@@ -9,10 +9,14 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from rest_framework import routers
+from app.views import EntrepriseViewSet
 
+router = routers.DefaultRouter()
+router.register(r'api', EntrepriseViewSet)
 
 urlpatterns = [
-    path('', include('app.urls', namespace='entreprise')),
+    path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('apimin/', admin.site.urls),
 ]
